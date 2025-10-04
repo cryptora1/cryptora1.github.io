@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>cryptora</title>
+    <link rel="icon" type="image/x-icon" href="https://pomf2.lain.la/f/rxp78hp2.png" />
+  <meta name="description" content="a little about me" />
+  <meta name="theme-color" content="#008000" />
+  <meta name="msapplication-TileColor" content="#008000" />
+  <meta property="image" content="https://pomf2.lain.la/f/rxp78hp2.png" />
+  <meta property="og:image" content="https://pomf2.lain.la/f/rxp78hp2.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%; overflow: hidden;
+      font-family: 'Quicksand', sans-serif;
+      background: none;
+    }
+#vanta-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+}
+
+#png-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://pomf2.lain.la/f/xlqjfto.png') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.65;
+}
+
+    #enter-popup, #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      z-index: 999;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    #overlay {
+      opacity: 0;
+      z-index: 998;
+      pointer-events: none;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      z-index: 1;
+      position: relative;
+    }
+    .card {
+      background: rgba(199, 251, 255, 0.568);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+      border: 3px solid black;
+      font-weight: 700;
+    }
+    .card img {
+      max-width: 100px;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    button {
+      background-color: #1a1a1a;
+      height: 70px;
+      outline: none;
+      border: solid 5px #3b3b3b;
+      color: white;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 1.2em;
+      border-radius: 15px;
+      transition: all ease-in-out 0.15s;
+      margin: 10px 5px 0 5px;
+      user-select: none;
+    }
+    button:hover {
+      background-color: #2a8899;
+      border: solid 5px #0099ff;
+      box-shadow: 0 0 10px #00c3ff, 0 0 20px #00ccff, 0 0 30px #00c3ff;
+    }
+    button:active {
+      scale: 0.8;
+    }
+    button:disabled {
+      background-color: #0e0e0e;
+      border: solid 5px #292929;
+      scale: 1;
+      box-shadow: none;
+    }
+    .buttons-wrapper {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-280W3J3S1L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-280W3J3S1L');
+</script>
+  <div id="vanta-bg"></div>
+  <div id="png-overlay"></div>
+
+  <div id="enter-popup">click to enter</div>
+  <div id="overlay"><span id="text"></span></div>
+  <audio id="enter-sound" src="aintitfun.mp3" preload="auto"></audio>
+
+  <div class="container">
+    <div class="card" role="main" aria-label="Main card content">
+      <img src="https://pomf2.lain.la/f/rxp78hp2.png" alt="Cryptora Logo" />
+      <h2>cryptora</h2>
+      <div class="buttons-wrapper">
+        <button onclick="window.location.href='https://discord.com/users/1394329131050733720'">Discord</button>
+        <button onclick="window.location.href='embed.html#https://req.doxbin.lat'">DBin Services (NW)</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+  <script>
+    VANTA.GLOBE({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200,
+      minWidth: 200,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x3fa4ff,
+      color2: 0x85e7ff,
+      backgroundColor: null
+    });
+
+    const enterPopup = document.getElementById('enter-popup');
+    const enterSound = document.getElementById('enter-sound');
+    const overlay = document.getElementById('overlay');
+    const textElement = document.getElementById('text');
+
+    const phrases = [
+      "",
+      "aint",
+      "aint it",
+      "aint it funnn",
+      "aint it funnnnnn",
+      "aint it funnnnnnnnnnn",
+      "aint it funnnnnnnnnnnnnnnnnnnnn"
+    ];
+    const delays = [0, 0.4, 0.2, 0.2, 0.3, 0.3, 0.01];
+
+    enterPopup.addEventListener('click', () => {
+      enterSound.play();
+      enterPopup.style.transition = 'all 0.3s ease';
+      enterPopup.style.opacity = '0';
+      setTimeout(() => {
+        enterPopup.style.display = 'none';
+      }, 500);
+    });
+
+    enterSound.addEventListener('play', () => {
+      let i = 0;
+      overlay.style.opacity = '1';
+      overlay.style.pointerEvents = 'auto';
+
+      (function updateText() {
+        if (i < phrases.length) {
+          textElement.textContent = phrases[i];
+          setTimeout(updateText, delays[i] * 1000);
+          i++;
+        } else {
+          setTimeout(() => {
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
+            setTimeout(() => {
+              overlay.style.display = 'none';
+            }, 500);
+          }, 500);
+        }
+      })();
+    });
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"fd959283aeb0470b9cfce28554be06f7","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
