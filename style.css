@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 ::-webkit-scrollbar{width:8px;cursor:url('ATPlink.cur'),pointer;}
-::-webkit-scrollbar-track{background:#0a0f1c;cursor:url('ATPlink.cur'),pointer;}
+::-webkit-scrollbar-track{background:#1c0a0a;cursor:url('ATPlink.cur'),pointer;}
 ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#dc2626,#f87171);border-radius:10px;cursor:url('ATPlink.cur'),pointer;}
 ::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#f87171,#dc2626);cursor:url('ATPlink.cur'),pointer;}
 body{
